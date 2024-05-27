@@ -257,7 +257,7 @@ a.active::before{
     justify-content: space-between;
 }
 .container-card{
-    width: 100%;
+    width: 49%;
     height: auto;
     margin: 7px 0;
     border-radius: 5px;
