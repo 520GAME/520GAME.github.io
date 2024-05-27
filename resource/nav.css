@@ -1,0 +1,230 @@
+.navBar {
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    /* background-color: #232323; */
+    z-index: 99 !important;
+    transition: all 0.4s;
+}
+.navContain{
+    max-width: none !important;
+    padding: 0 15px;
+    position: relative;
+    margin: 0 auto;
+}
+.logo{
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 60px;
+    background-image: url('../icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 99;
+}
+.nav-right{
+    position: relative;
+    float: right;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 60px;
+    z-index: 99;
+}
+.nav-searcher, .nav-menu{
+    width: 40px;
+    height: 40px;
+}
+.nav-searchIcon, .nav-menuIcon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.nav-searchIcon::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    content: "\e8c4";
+    position: absolute;
+    transition: all 0.3s;
+}
+.nav-search-win{
+    height: auto;
+    /* overflow: scroll; */
+    position: absolute;
+    width: 100vw;
+    top: 60px;
+    left: 0;
+    transform: translateY(calc(-100% - 61px));
+    z-index: 6 !important;
+    transition: all 0.4s;
+    background-color: #232323;
+}
+.searchToast{
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    height: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.toastTitle{
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    color: #fc85a7;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+.inputDiv{
+    width: 80%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+    display: flex;
+    border-bottom: #dbdee2 solid 1px;
+}
+#nav-search-form{
+    width: 100%;
+}
+.toastInput{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    color: #3ef7b6;
+    background-color: #232323;
+    letter-spacing: 2px;
+    padding-left: 20px;
+    font-size: 17px;
+    border: none;
+}
+
+.underLine{
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background-color: #ff3f9f;
+    transition: all 0.6s;
+    outline: 0 !important;
+}
+
+.searchPlaceHolder{
+    position: absolute;
+    color: #555659;
+    font-size: 16px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    transition: all 0.6s;
+}
+.toastBtn{
+    position: absolute;
+    right: 2px;
+    width: 40px;
+    outline: none;
+    border: none;
+    height: 40px;
+    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/search1.png?inline=false') center;
+    background-repeat: no-repeat;
+    background-size: 60% 60%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.searchToastTags{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.searchToastTitle{
+    width: 80%;
+    color: #f9769b;
+    margin-bottom: 10px;
+}
+.searchToastTitle::before{
+    content: '# ';
+}
+.searchToastTag{
+    height: 22px;
+    line-height: 22px;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 0px 5px;
+    background-color: #e46674;
+    color: #ffffff;
+    border-radius: 4px;
+    margin: 3px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+.searchToastTag:hover{
+    background-color: #14b268;
+}
+#searchToastClearTag{
+    height: 22px;
+    line-height: 22px;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 0px 5px;
+    background-color: #54badf;
+    color: #ffffff;
+    border-radius: 4px;
+    margin: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+#searchToastClearTag:hover{
+    background-color: #b2142e;
+}
+.toastBtn:hover{
+    opacity: 0.7;
+}
+.toastClose{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 15px;
+    top: 5px;
+    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/close_p.png?inline=false') center;
+    background-repeat: no-repeat;
+    background-size: 40% 40%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.toastClose:hover{
+    opacity: 0.7;
+}
+
+
+.nav-menuIcon::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    content: "\e605";
+    position: absolute;
+    transition: all 0.3s;
+}
+.nav-menuIcon:hover::before,.nav-searchIcon:hover::before{
+    color: #14b268;
+}

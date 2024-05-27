@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <link rel="stylesheet" href="./resource/main.css">
+    <link rel="stylesheet" href="./resource/nav.css">
+    <link rel="stylesheet" href="./resource/search.css">
+
+    <!-- 设置网页图标 -->
+    <link rel="icon" type="image/x-icon" href="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/favion_32.ico?inline=false">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/favion_32.png?inline=false">
+    <link rel="icon" type="image/png" sizes="64x64" href="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/favion_64.png?inline=false">
+    <!-- 设置苹果设备图标 -->
+    <link rel="apple-touch-icon" href="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/favion_32.png?inline=false">
+        
+</head>
+<body>
+    <div class="navBar" id="navBar">
+        <div class="navContain">
+            <a class="logo" href="/"></a>
+            <div class="nav-search-win" id="nav-search-win">
+                <div class="searchToast">
+                    <div class="toastTitle">搜一搜</div>
+                    <form id="nav-search-form" action="#">
+                        <div class="inputDiv" id="inputDiv">
+                            <input type="text" class="toastInput" id="toastInput" placeholder="">
+                            <input class="toastBtn" id="toastBtn" type="submit" value="">
+                            <div class="underLine" id="underLine"></div>
+                            <div class="searchPlaceHolder" id="searchPlaceHolder">开启精彩搜索</div>
+                        </div>
+                    </form>
+                    <div class="searchToastTitle">热门搜索</div>
+                    <div class="searchToastTags">
+                        <div class="searchToastTag">安卓</div>
+                        <div class="searchToastTag">巫师3</div>
+                        <div class="searchToastTag">辐射</div>
+                        <div class="searchToastTag">GTA</div>
+                    </div>
+                    <div class="searchToastTitle">最近搜索</div>
+                    <div class="searchToastTags" id="recentSearchTags">
+                    </div>
+                    <!-- 关闭按钮 -->
+                    <div class="toastClose" id="toastClose"></div>
+                </div>
+            </div>
+            <ul class="nav-right">
+                <li class="nav-searcher">
+                    <i class="nav-searchIcon icon" id="nav-searcher-btn"></i>
+                </li>
+                <li class="nav-menu">
+                    <a href="/category.html"><i class="nav-menuIcon icon" id="nav-menu-btn"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-top">
+        <form method="get" class="search-form" id="searchForm" action="#">
+            <input class="searchInput" id="searchInput" name="s" type="text" placeholder="搜索一下" autocomplete="off">
+            <button class="searchBtn" type="submit"><i class="icon icon-search"></i></button>
+        </form>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="container">
+                <div class="container-cards" id="containerCards">
+
+                </div>
+            </div>
+
+            <div class="pageBar" id="pageBar">
+                <div class="pageItem" id="upPage">上一页</div>
+                <div class="pageItem pageItemActive">1</div>
+                <div class="pageItem">2</div>
+                <div class="pageItem">3</div>
+                <div class="pageItem">4</div>
+                <div class="pageItem">5</div>
+                <div class="pageItem">...</div>
+                <div class="pageItem">22</div>
+                <div class="pageItem" id="downPage">下一页</div><input id="pageInput" placeholder="页码">
+                <div id="toPageBtn">跳转</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footRow">
+            <ul class="links">
+                <span>友情链接:</span>
+                <li><a href="https://bzxm.github.io" target="_blank">宝藏小蛮资源库</a></li>
+                <li><a href="https://18hub.github.io" target="_blank">热门宝藏短剧</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="./resource/nav.js"></script>
+    <script src="./resource/search.js"></script>
+</body>
+</html>
