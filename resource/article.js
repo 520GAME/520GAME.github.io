@@ -1,6 +1,7 @@
 const articlePage = document.getElementById('articlePage')
 const articleRight = document.getElementById('articleRight')
 const myGod = document.getElementById('myGod')
+const gameSelectBtn = document.getElementById('gameSelectBtn')
 
 let maxMyGodH = articlePage.clientHeight - articleRight.clientHeight;
 window.onload =() => {
@@ -33,6 +34,38 @@ window.onload =() => {
         });
     }
 }
+
+let randGame = {}
+const getRandGame = () => {
+    let randC = randomGameSelectArr[Math.floor(Math.random() * randomGameSelectArr.length)];
+    gsInput.value = randC.name;
+    randGame = randC;
+}
+const gsInput = document.getElementsByClassName('gsInput')[0];
+const randomGameName = document.getElementsByClassName('randomGameName')[0];
+const randomGameCk = document.getElementsByClassName('randomGameCk')[0];
+const returnRandom = document.getElementsByClassName('returnRandom')[0];
+const articleModal = document.getElementById('modal');
+let gameSelectId;
+let randGameFlag = false;
+gameSelectBtn.addEventListener('click',() => {
+    if(!randGameFlag){
+        randGameFlag = true;
+        gameSelectId = setInterval(getRandGame,30);
+        gameSelectBtn.innerHTML = '停止选择';
+    }else{
+        clearInterval(gameSelectId);
+        randGameFlag =false;
+        console.log('选择了：',randGame);
+        gameSelectBtn.innerHTML = '重新选择';
+        randomGameName.innerHTML = '是否要玩 <span style="color:#d6a65a;">'+randGame.name+'</span> 这款游戏？';
+        randomGameCk.href = '/articles/'+randGame.id+'.html';
+        articleModal.style.display = 'block';
+    }
+})
+returnRandom.addEventListener('click',() => {
+    articleModal.style.display = 'none';
+})
 
 window.addEventListener('resize',() => {
     maxMyGodH = articlePage.clientHeight - articleRight.clientHeight + myGod.offsetHeight;
@@ -84,5 +117,5 @@ if(articleTagTus != undefined){
 
 
 // 删除第三方标志
-let vpower = document.getElementsByClassName('vpower')[0];
-vpower.innerHTML = ''
+// let vpower = document.getElementsByClassName('vpower')[0];
+// vpower.innerHTML = ''
