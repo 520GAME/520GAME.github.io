@@ -300,12 +300,13 @@ a.active::before{
 }
 .con-card-classifyList{
     display: flex;
+    flex-wrap: wrap;
 }
 .con-card-classifyList a:hover{
     color: #ccc;
 }
 .con-card-classify{
-    padding: 12px 10px 0 10px;
+    padding: 12px 0px 0 2px;
     display: block;
     font-size: 12px;
     color: #777;
@@ -319,7 +320,7 @@ a.active::before{
     text-decoration: none;
 }
 .con-card-classify2{
-    padding: 12px 10px 0 10px;
+    padding: 12px 0px 0 4px;
     display: block;
     font-size: 12px;
     color: #777;
@@ -339,7 +340,7 @@ a.active::before{
     display: block;
     border-radius: 15px;
     position: relative;
-    left: -16px;
+    left: -12px;
     top: -13px;
     border: 2px solid #14b268;
 }
@@ -350,7 +351,7 @@ a.active::before{
     display: block;
     border-radius: 15px;
     position: relative;
-    left: -16px;
+    left: -12px;
     top: -13px;
     border: 2px solid #1495b2;
 }

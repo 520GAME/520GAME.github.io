@@ -82,6 +82,28 @@ request.onload = function () {
     allCards = cards;
     getCurrentClassifyCards();
     showThis(getCurrentShowCards(1));
+
+    // 解析 URL 中的参数
+    var urlParams = new URLSearchParams(window.location.search);
+    var categoryText = urlParams.get('text');
+    if(categoryText!=null && categoryText != ''){
+        for(let i = 0; i < cate_tag.length; i++){
+            if(cate_tag[i].innerHTML == categoryText){
+                
+                getCurrentClassifyCards(cate_tag[i].innerHTML);
+                showThis(getCurrentShowCards(1));
+                 // 创建鼠标点击事件
+                var clickEvent = new MouseEvent('click', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+
+                // 模拟触发点击事件
+                cate_tag[i].dispatchEvent(clickEvent);
+            }
+        }
+    }
 }
 
 function formatDate(str) {
@@ -119,8 +141,8 @@ const showThis = (cards) => {
                 title="${card.detail}" target="_blank"
                 style="background-image: url('${card.img}');"></a>
             <div class="con-card-classifyList">
-                <div class="con-card-classify"><a href="#">${showClassify}</a></div>
-                <div class="con-card-classify2"><a href="#">${showClassify2}</a></div>
+                <div class="con-card-classify"><a href="/category.html?text=${showClassify}">${showClassify}</a></div>
+                <div class="con-card-classify2"><a href="/category.html?text=${showClassify2}">${showClassify2}</a></div>
             </div>
             <h3 itemprop="name headline"><a itemprop="url" rel="bookmark" href="/articles/${card.id}.html"
                     title="${card.detail}"

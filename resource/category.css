@@ -92,3 +92,12 @@ input[type="radio"]:checked + label{
         width: 80vw;
     }
 }
+@media (min-width:1000px) {
+    .category-tags label{
+        font-size: 14px;
+    }
+    .category-title{
+        font-size: 17px;
+        width: 100px;
+    }
+}
