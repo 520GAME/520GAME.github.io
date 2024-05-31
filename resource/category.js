@@ -8,6 +8,7 @@ const cate_tagFire = document.getElementById('tag-fire');
 const cate_tagFire_input = document.getElementById('tagFire');
 const pageBar = document.getElementById('pageBar');
 const containerCards = document.getElementById('container-cards');
+const categoryTagsUl = document.getElementById('category-tags-ul');
 
 cate_tagNew.addEventListener('click',() => {
     if(currentClassifyText == '全部'){
@@ -87,8 +88,10 @@ request.onload = function () {
     var urlParams = new URLSearchParams(window.location.search);
     var categoryText = urlParams.get('text');
     if(categoryText!=null && categoryText != ''){
+        let exsits = false;
         for(let i = 0; i < cate_tag.length; i++){
             if(cate_tag[i].innerHTML == categoryText){
+                exsits = true;
                 
                 getCurrentClassifyCards(cate_tag[i].innerHTML);
                 showThis(getCurrentShowCards(1));
@@ -102,6 +105,58 @@ request.onload = function () {
                 // 模拟触发点击事件
                 cate_tag[i].dispatchEvent(clickEvent);
             }
+        }
+        if(!exsits){
+            // 创建li元素
+            var li = document.createElement('li');
+
+            // 创建a元素
+            var a = document.createElement('a');
+            a.setAttribute('href', '#');
+
+            // 创建input元素
+            var input = document.createElement('input');
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', 'tags');
+            input.setAttribute('id', 'tag999');
+
+            // 创建label元素
+            var label = document.createElement('label');
+            label.setAttribute('id', 'tag999');
+            label.setAttribute('class', 'tag');
+            label.setAttribute('for', 'tag999');
+            label.textContent = categoryText;
+            label.addEventListener('click',() => {
+                currentClassifyText = label.innerHTML;
+                if(label.innerHTML == '全部'){
+                    getCurrentClassifyCards();
+                    showThis(getCurrentShowCards(1));
+                }else{
+                    getCurrentClassifyCards(label.innerHTML);
+                    showThis(getCurrentShowCards(1));
+                }
+                input.checked = true;
+            })
+
+            // 将input和label添加到a元素中
+            a.appendChild(input);
+            a.appendChild(label);
+
+            // 将a添加到li元素中
+            li.appendChild(a);
+
+            // 将li元素添加到页面中的某个元素中，例如id为"list"的ul或ol元素
+            categoryTagsUl.appendChild(li);
+
+             // 创建鼠标点击事件
+             var clickEvent = new MouseEvent('click', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+            });
+
+            // 模拟触发点击事件
+            label.dispatchEvent(clickEvent);
         }
     }
 }

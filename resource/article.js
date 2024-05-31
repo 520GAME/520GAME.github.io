@@ -96,7 +96,7 @@ if(articleTags != undefined){
     for(let i = 0; i < tags.length; i++){
         tags[i].addEventListener('click',() => {
             // 搜索标签
-            let ref = '../../index.html?search='+tags[i].innerHTML
+            let ref = '../category.html?text='+tags[i].innerHTML
             window.location.href = ref
         })
     }

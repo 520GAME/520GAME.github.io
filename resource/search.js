@@ -45,7 +45,8 @@ request.onload = function () {
     var searchText = urlParams.get('text');
     if(searchText!=null && searchText != ''){
         searchInput.value = searchText;
-        getCurrentCards(searchText)
+        document.title = searchText;
+        getCurrentCards(searchText);
         currentPageNum = 1
         showThis(getCurrentShowCards(currentPageNum))
 
