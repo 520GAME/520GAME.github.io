@@ -88,6 +88,7 @@ request.onload = function () {
     var urlParams = new URLSearchParams(window.location.search);
     var categoryText = urlParams.get('text');
     if(categoryText!=null && categoryText != ''){
+        document.title = categoryText+'-520GAME-全球免费热门游戏分享';
         let exsits = false;
         for(let i = 0; i < cate_tag.length; i++){
             if(cate_tag[i].innerHTML == categoryText){
