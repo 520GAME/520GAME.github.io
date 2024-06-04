@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /data/
+Sitemap:https://520kkko.me/sitemap.xml
