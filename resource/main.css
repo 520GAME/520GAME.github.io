@@ -94,17 +94,19 @@ background-color: #f0f0f000; /* 修改滚动条轨道的颜色 */
     z-index: 10;
 }
 
-.top h2 {
+#homeTitle{
+    text-wrap: nowrap;
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: 2px;
     color: #fff;
+    user-select: none;
 }
 
 .top p {
     font-size: 16px;
-    color: #888;
+    color: #c0c0c0;
 }
 
 .search-form{
@@ -538,8 +540,15 @@ a.active::before{
     display: none;
 }
 
-
 @media (max-width: 450px) {
+    #homeTitle{
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+        color: #fff;
+        user-select: none;
+    }
     .card-free{
         user-select: none;
         position: absolute;

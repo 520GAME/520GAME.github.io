@@ -1,3 +1,5 @@
+let colors = ['#00bb55','#1ABDE6','#2688c9', '#d83372', '#d8c733', '#f38e54','#00FF66','#FF0033'];
+
 document.addEventListener("DOMContentLoaded", function () {
     let randomTexts = ["520精品游戏资源中心?!", "欢迎你的到来!!"];
     const randomText = document.getElementById('randomText');
@@ -46,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const getRandLuanma = (n) => {
         let luanma = '';
         let characters = 'ABC|DEFGHIJKLMNOPQRSTU{}!@#$%&()VWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let colors = ['#00bb55', '#2688c9', '#d83372', '#d8c733', '#f38e54'];
         for (let i = 0; i < n; i++) {
             var randomIndex = Math.floor(Math.random() * characters.length);
             let randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -73,3 +74,72 @@ document.addEventListener("DOMContentLoaded", function () {
     // 开始打字
     startdazi();
 });
+
+const showTextSByS = (toShowTexts,element,isRandom) => {
+    let toSNum = 0;
+    if(isRandom){
+        toSNum = Math.floor(Math.random() * toShowTexts.length);
+    }
+    let curNum = 0;
+    let testCurNum = toShowTexts[toSNum].length;
+    let showText = '';
+    let luanma = '';
+
+
+    let daziId;
+    const startdazi = () => {
+        daziId = setInterval(() => {
+            if (curNum <= toShowTexts[toSNum].length) {
+                showText = toShowTexts[toSNum].substring(0, curNum);
+                luanma = getRandLuanma(testCurNum - curNum);
+                element.innerHTML = showText + luanma;
+                curNum++;
+            } else {
+                startluanma();
+            }
+        }, 100);
+    }
+    let luanmaId;
+    const startluanma = () => {
+        clearInterval(daziId);
+        setTimeout(() => {
+            luanmaId = setInterval(() => {
+                showText = toShowTexts[toSNum].substring(0, testCurNum);
+                luanma = getRandLuanma(curNum - testCurNum);
+                element.innerHTML = showText + luanma;
+                testCurNum--;
+                if (testCurNum < 0) {
+                    if(isRandom){
+                        toSNum = Math.floor(Math.random() * toShowTexts.length);
+                    }else{
+                        toSNum = (toSNum+1)%toShowTexts.length;
+                    }
+                    curNum = 0;
+                    testCurNum = toShowTexts[toSNum].length;
+                    luanma = '';
+                    clearInterval(luanmaId);
+                    startdazi();
+                }
+            }, 100)
+        }, 600);
+    }
+
+    const getRandLuanma = (n) => {
+        let luanma = '';
+        let characters = 'ABC|DEFGHIJK就发送警告肉帕文几个破防福你我他着王小蛮宝好MNOPQRSTU{}!@#$%&()VWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < n; i++) {
+            var randomIndex = Math.floor(Math.random() * characters.length);
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            luanma += `<span style='color:${randomColor}'>${characters[randomIndex]}</span>`;
+        }
+        return luanma;
+    }
+
+    // 开始打字
+    startdazi();
+}
+
+let homeDes = document.getElementById('homeDes');
+if(homeDes != undefined){
+    showTextSByS(["免费的热门游戏网站!","你想要的这里都有!"],homeDes,false);
+}
