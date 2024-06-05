@@ -141,5 +141,5 @@ const showTextSByS = (toShowTexts,element,isRandom) => {
 
 let homeDes = document.getElementById('homeDes');
 if(homeDes != undefined){
-    showTextSByS(["免费的热门游戏网站!","你想要的这里都有!"],homeDes,false);
+    showTextSByS(["520game.oocc.cn","免费的热门游戏网站!","你想要的这里都有!"],homeDes,false);
 }
