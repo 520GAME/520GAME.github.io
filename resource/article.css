@@ -560,67 +560,54 @@ a:active {
     display: none;
 }
 
-.footer{
-    width: 100vw;
-    height: auto;
-    margin-top: 50px;
-    padding: 40px;
-    background-color: #0a0a0a;
-}
-.footRow{
-    width: 80%;
-    margin: auto;
-    display: flex;
-    color: #c0c0c0;
-    font-size: 15px;
-    justify-content: center;
-}
-.footRow .links{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-}
-.links span{
-    position: relative;
-}
-.links span::before{
-    font-family: "iconfont-modown" !important;
-    font-style: normal;
-    font-size: 15px;
-    margin-right: 2px;
 
-    color: #14b268;
-    content: "\E8F1";
-    transition: all 0.3s;
+.footer {
+    display: block;
+    background-color: #333;
+    color: #ccccdd;
+    font-size: 12px;
+    line-height: 1.7em;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 20px;
 }
-.links li a{
-    font-size: 14px;
-    white-space: nowrap;
-    color: #c5c5c5;
+
+#randomText{
+    height: 1.7em;
+}             
+
+.friendLinks ul{
+    display: inline-block;
+    list-style-type: circle;
+}
+.friendLinks ul li{
+    display: inline-block;
+    list-style: circle;
+}
+.friendLinks ul li a{
+    display: inline-block;
     text-decoration: none;
-    transition: all 0.3s;
+    color: #ccccdd;
 }
-.links li{
-    margin: 0 5px;
+.friendLinks ul li a:hover{
+    display: inline-block;
+    text-decoration: none;
+    color: #ccccdd;
 }
-.links li a:hover{
-    color: #14b268;
+.friendLinks ul li::before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin: 0 .5em;
+    border-radius: 50%;
+    display: inline-block;
+    background: #ccccdd;
+    vertical-align: .2em;
 }
-.links li{
-    position: relative;
-}
-.links li:hover::before{
-    color: #14b268;
-}
-.links li::before{
-    font-family: "iconfont-modown" !important;
-    font-style: normal;
-    font-size: 15px;
 
-    color: #fff;
-    content: "\E756";
-    transition: all 0.3s;
+#busuanzi_value_site_uv{
+    display: none;
 }
 
 /* @media(min-width: 1000px) {
@@ -636,7 +623,14 @@ a:active {
     }
 } */
 
-/* 当视口宽度小于等于568px时应用以下样式 */
+@media (max-width: 450px) {
+    #articleTitle{
+        font-size: 18px;
+    }
+    .footer{
+        margin-top: 0px;
+    }
+}
 @media (max-width: 768px) {
     .articlePage{
         width: 100%;
