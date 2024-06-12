@@ -9,6 +9,7 @@ const cate_tagFire_input = document.getElementById('tagFire');
 const pageBar = document.getElementById('pageBar');
 const containerCards = document.getElementById('container-cards');
 const categoryTagsUl = document.getElementById('category-tags-ul');
+const containerLoading = document.getElementById('container-loading');
 
 cate_tagNew.addEventListener('click',() => {
     if(currentClassifyText == '全部'){
@@ -181,6 +182,7 @@ function formatDate(str) {
  };
 
 const showThis = (cards) => {
+    containerLoading.style.display = 'none';
     let showCards = ''
     cards.forEach((card,index) => {
         let classifyList = card.classify.split('|');
