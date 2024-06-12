@@ -1,3 +1,4 @@
+const navToggleBtn = document.getElementById('nav-toggle-btn');
 const navSearcherBtn = document.getElementById('nav-searcher-btn');
 const navjs_navBar = document.getElementById('navBar');
 const navjs_navSearchWin = document.getElementById('nav-search-win');
@@ -12,7 +13,7 @@ let navBar = document.getElementById('navBar');
 window.addEventListener('scroll', function() {
     var scrollDistance = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollDistance >= 20) {
-        navBar.style.backgroundColor = '#232323';
+        navBar.style.backgroundColor = 'var(--card-bg)';
     }else{
         if(!navjs_navSearchFlag)
         navBar.style.backgroundColor = '#23232300';
@@ -26,7 +27,7 @@ navSearcherBtn.addEventListener('click',() => {
         navjs_navSearchWin.style.transform = 'translateY(calc(-100% - 61px))';
         navjs_navSearchFlag = false;
     }else{
-        navjs_navBar.style.backgroundColor = '#232323';
+        navjs_navBar.style.backgroundColor = 'var(--card-bg)';
         navjs_navSearchWin.style.transform = 'translateY(0)';
         navjs_navSearchFlag = true;
     }
@@ -131,3 +132,49 @@ navSearchForm.addEventListener('submit',(event) => {
 })
 
 
+// 更新日间夜间 content
+function updatePseudoElementContent(selector, pseudo, newContent) {
+    for (let sheet of document.styleSheets) {
+        try {
+            for (let rule of sheet.cssRules) {
+                if (rule.selectorText === selector && rule.selectorText.includes(pseudo)) {
+                    rule.style.setProperty('content', newContent);
+                }
+            }
+        } catch (e) {
+            console.error("Cannot access stylesheet rules due to CORS policy: ", e);
+        }
+    }
+}
+
+
+const toggleDayN = (isDay) => {
+    console.log(isDay,typeof isDay);
+    if(isDay == false){
+        updatePseudoElementContent('.nav-toggleIcon::before', '::before', '"\\E635"');
+        document.documentElement.style.setProperty('--bg-color', 'var(--bg-color-night)');
+        document.documentElement.style.setProperty('--text-color', 'var(--text-color-night)');
+        document.documentElement.style.setProperty('--cc', 'var(--nn)');
+        document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-night)');
+        document.documentElement.style.setProperty('--box-shadow-color', 'var(--box-shadow-color-night)');
+    }else{
+        updatePseudoElementContent('.nav-toggleIcon::before', '::before', '"\\E639"');
+        document.documentElement.style.setProperty('--bg-color', 'var(--bg-color-day)');
+        document.documentElement.style.setProperty('--text-color', 'var(--text-color-day)');
+        document.documentElement.style.setProperty('--cc', 'var(--dd)');
+        document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-day)');
+        document.documentElement.style.setProperty('--box-shadow-color', 'var(--box-shadow-color-day)');
+    }
+}
+let isDay = localStorage.getItem('isDay');
+if(isDay == null){
+    isDay = false;
+}else{
+    isDay = JSON.parse(isDay);
+}
+toggleDayN(isDay);
+navToggleBtn.addEventListener('click',() => {
+    isDay = !isDay;
+    toggleDayN(isDay);
+    localStorage.setItem('isDay',isDay);
+})
