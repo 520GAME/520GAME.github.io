@@ -157,6 +157,7 @@ const toggleDayN = (isDay) => {
         document.documentElement.style.setProperty('--cc', 'var(--nn)');
         document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-night)');
         document.documentElement.style.setProperty('--box-shadow-color', 'var(--box-shadow-color-night)');
+        document.documentElement.style.setProperty('--logo', 'var(--logo-night)');
     }else{
         updatePseudoElementContent('.nav-toggleIcon::before', '::before', '"\\E639"');
         document.documentElement.style.setProperty('--bg-color', 'var(--bg-color-day)');
@@ -164,6 +165,7 @@ const toggleDayN = (isDay) => {
         document.documentElement.style.setProperty('--cc', 'var(--dd)');
         document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-day)');
         document.documentElement.style.setProperty('--box-shadow-color', 'var(--box-shadow-color-day)');
+        document.documentElement.style.setProperty('--logo', 'var(--logo-day)');
     }
 }
 let isDay = localStorage.getItem('isDay');

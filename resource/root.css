@@ -14,4 +14,7 @@
     --box-shadow-color:#aaa;
     --box-shadow-color-day:#aaa;
     --box-shadow-color-night:#070707;
+    --logo:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/520game/icon_day.png?inline=false');
+    --logo-day:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/520game/icon_day.png?inline=false');
+    --logo-night:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/520game/icon.png?inline=false');
   }

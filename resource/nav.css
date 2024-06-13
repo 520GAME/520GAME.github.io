@@ -14,9 +14,9 @@
 .logo{
     display: inline-block;
     position: relative;
-    width: 120px;
+    width: 160px;
     height: 60px;
-    background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/520game/icon.png?inline=false');
+    background-image: var(--logo);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -243,4 +243,11 @@
 }
 .nav-menuIcon:hover::before,.nav-searchIcon:hover::before,.nav-toggleIcon:hover::before{
     color: #14b268;
+}
+
+@media (min-width:500px) {
+    .logo{
+        width: 200px;
+        height: 60px;
+    }
 }
